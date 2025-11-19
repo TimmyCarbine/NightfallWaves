@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://7w33so8lehg5"]
+
+[node name="RunHud" type="CanvasLayer"]
+
+[node name="HUDRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OutpostHealthBar" type="TextureProgressBar" parent="HUDRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="HUDRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WaveLabel" type="Label" parent="HUDRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TimerLabel" type="Label" parent="HUDRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StateLabel" type="Label" parent="HUDRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GameOverPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReasonLabel" type="Label" parent="GameOverPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FinalWaveLabel" type="Label" parent="GameOverPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RestartButton" type="Button" parent="GameOverPanel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

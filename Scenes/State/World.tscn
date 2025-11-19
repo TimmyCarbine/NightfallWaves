@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://btv11sbi668tq"]
+
+[node name="World" type="Node2D"]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+
+[node name="Outpost" type="StaticBody2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Outpost"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outpost"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="EnemySpawner" type="Node" parent="."]
+
+[node name="WaveDirector" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
