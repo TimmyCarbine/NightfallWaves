@@ -1,8 +1,25 @@
-
-# Godot-specific ignores
+# Godot-specific
+.godot/
 .import/
-export.cfg
-export_presets.cfg
 
-# Mono-specific ignores
+# Logs + tmp
+*.tmp
+*.log
+*.cache
+
+# Mono / C# build files
 .mono/
+mono/
+*.csproj.user
+*.sln*
+*.user
+*.mono/
+data_*/        # Godot Mono export data folders
+
+# OS-specific noise
+.DS_Store
+Thumbs.db
+
+# Godot export output
+exported/
+exports/
