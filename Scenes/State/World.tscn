@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://btv11sbi668tq"]
+[gd_scene load_steps=5 format=3 uid="uid://btv11sbi668tq"]
+
+[ext_resource type="Script" uid="uid://cen5onfk1n5qp" path="res://Scripts/Managers/Outpost.cs" id="1_254ns"]
+[ext_resource type="Script" uid="uid://bfgad0bvhnhyh" path="res://Scripts/Workers/HealthComponent.cs" id="2_civ3a"]
+[ext_resource type="Script" uid="uid://dmrwju55pdh8d" path="res://Scripts/Managers/EnemySpawner.cs" id="2_p5bp4"]
+[ext_resource type="Script" uid="uid://dhjhfa5llw85o" path="res://Scripts/Managers/WaveDirector.cs" id="3_civ3a"]
 
 [node name="World" type="Node2D"]
 
@@ -6,10 +11,16 @@
 
 [node name="Outpost" type="StaticBody2D" parent="."]
 position = Vector2(0, -2)
+script = ExtResource("1_254ns")
+HealthComponentPath = NodePath("HealthComponemt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Outpost"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outpost"]
+
+[node name="HealthComponemt" type="Node" parent="Outpost"]
+script = ExtResource("2_civ3a")
+MaxHealth = 500.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
 
@@ -17,10 +28,22 @@ position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthComponemt" type="Node" parent="Player"]
+script = ExtResource("2_civ3a")
+
 [node name="EnemyContainer" type="Node2D" parent="."]
 
 [node name="EnemySpawner" type="Node" parent="."]
+script = ExtResource("2_p5bp4")
+_enemyContainerPath = NodePath("../EnemyContainer")
+_cameraPath = NodePath("../Camera2D")
+_outpostPath = NodePath("../Outpost")
 
 [node name="WaveDirector" type="Node" parent="."]
+script = ExtResource("3_civ3a")
 
 [node name="Camera2D" type="Camera2D" parent="."]

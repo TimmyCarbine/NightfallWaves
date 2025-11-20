@@ -1,6 +1,18 @@
-[gd_scene format=3 uid="uid://7w33so8lehg5"]
+[gd_scene load_steps=2 format=3 uid="uid://7w33so8lehg5"]
+
+[ext_resource type="Script" uid="uid://dojuh1yfbnonc" path="res://Scripts/Managers/RunHUD.cs" id="1_vhlpc"]
 
 [node name="RunHud" type="CanvasLayer"]
+script = ExtResource("1_vhlpc")
+OutpostHealthBarPath = NodePath("HUDRoot/OutpostHealthBar")
+PlayerHealthBarPath = NodePath("HUDRoot/PlayerHealthBar")
+WaveLabelPath = NodePath("HUDRoot/WaveLabel")
+TimerLabelPath = NodePath("HUDRoot/TimerLabel")
+StateLabelPath = NodePath("HUDRoot/StateLabel")
+GameOverPanelPath = NodePath("GameOverPanel")
+ReasonLabelPath = NodePath("GameOverPanel/ReasonLabel")
+FinalWaveLabelPath = NodePath("GameOverPanel/FinalWaveLabel")
+RestartButtonPath = NodePath("GameOverPanel/RestartButton")
 
 [node name="HUDRoot" type="Control" parent="."]
 layout_mode = 3

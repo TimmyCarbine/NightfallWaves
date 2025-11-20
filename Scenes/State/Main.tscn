@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvrp2kpnvo6of"]
+[gd_scene load_steps=4 format=3 uid="uid://cvrp2kpnvo6of"]
 
+[ext_resource type="Script" uid="uid://c5ekv6vxqu1km" path="res://Scripts/Managers/Main.cs" id="1_2guvw"]
 [ext_resource type="PackedScene" uid="uid://btv11sbi668tq" path="res://Scenes/State/World.tscn" id="1_vsse4"]
 [ext_resource type="PackedScene" uid="uid://7w33so8lehg5" path="res://Scenes/State/RunHUD.tscn" id="2_2guvw"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_2guvw")
+WorldPath = NodePath("World")
+RunHudPath = NodePath("RunHud")
+WaveDirectorPath = NodePath("")
 
 [node name="World" parent="." instance=ExtResource("1_vsse4")]
 
