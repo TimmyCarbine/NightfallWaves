@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cjme1338j10ou"]
+
+[ext_resource type="Texture2D" uid="uid://b84o08tibug4o" path="res://Assets/Tiles/GroundTile.png" id="1_yr6wg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kk00l"]
+resource_name = "GroundTile"
+texture = ExtResource("1_yr6wg")
+0:0/next_alternative_id = 4
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_kk00l")

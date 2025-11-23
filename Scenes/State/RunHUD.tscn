@@ -4,64 +4,111 @@
 
 [node name="RunHud" type="CanvasLayer"]
 script = ExtResource("1_vhlpc")
-OutpostHealthBarPath = NodePath("HUDRoot/OutpostHealthBar")
-PlayerHealthBarPath = NodePath("HUDRoot/PlayerHealthBar")
-WaveLabelPath = NodePath("HUDRoot/WaveLabel")
-TimerLabelPath = NodePath("HUDRoot/TimerLabel")
-StateLabelPath = NodePath("HUDRoot/StateLabel")
+OutpostHealthBarPath = NodePath("HUDRoot/HUDMargin/HUDVB/BottomHB/OutpostHealthBar")
+PlayerHealthBarPath = NodePath("HUDRoot/HUDMargin/HUDVB/BottomHB/PlayerHealthBar")
+WaveLabelPath = NodePath("HUDRoot/HUDMargin/HUDVB/TopHB/WaveLabel")
+TimerLabelPath = NodePath("HUDRoot/HUDMargin/HUDVB/TopHB/TimerLabel")
+StateLabelPath = NodePath("HUDRoot/HUDMargin/HUDVB/TopHB/StateLabel")
 GameOverPanelPath = NodePath("GameOverPanel")
-ReasonLabelPath = NodePath("GameOverPanel/ReasonLabel")
-FinalWaveLabelPath = NodePath("GameOverPanel/FinalWaveLabel")
-RestartButtonPath = NodePath("GameOverPanel/RestartButton")
+ReasonLabelPath = NodePath("GameOverPanel/PanelContainer/GameOverVB/ReasonLabel")
+FinalWaveLabelPath = NodePath("GameOverPanel/PanelContainer/GameOverVB/FinalWaveLabel")
+RestartButtonPath = NodePath("GameOverPanel/PanelContainer/GameOverVB/RestartButton")
 
 [node name="HUDRoot" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="OutpostHealthBar" type="TextureProgressBar" parent="HUDRoot"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HUDMargin" type="MarginContainer" parent="HUDRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="PlayerHealthBar" type="TextureProgressBar" parent="HUDRoot"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HUDVB" type="VBoxContainer" parent="HUDRoot/HUDMargin"]
+layout_mode = 2
 
-[node name="WaveLabel" type="Label" parent="HUDRoot"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="TopHB" type="HBoxContainer" parent="HUDRoot/HUDMargin/HUDVB"]
+custom_minimum_size = Vector2(600, 64)
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="TimerLabel" type="Label" parent="HUDRoot"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="StateLabel" type="Label" parent="HUDRoot/HUDMargin/HUDVB/TopHB"]
+layout_mode = 2
 
-[node name="StateLabel" type="Label" parent="HUDRoot"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="WaveLabel" type="Label" parent="HUDRoot/HUDMargin/HUDVB/TopHB"]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="HUDRoot/HUDMargin/HUDVB/TopHB"]
+layout_mode = 2
+
+[node name="SpacerControl" type="Control" parent="HUDRoot/HUDMargin/HUDVB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomHB" type="HBoxContainer" parent="HUDRoot/HUDMargin/HUDVB"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="HUDRoot/HUDMargin/HUDVB/BottomHB"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpacerControl" type="Control" parent="HUDRoot/HUDMargin/HUDVB/BottomHB"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OutpostHealthBar" type="TextureProgressBar" parent="HUDRoot/HUDMargin/HUDVB/BottomHB"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="GameOverPanel" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ReasonLabel" type="Label" parent="GameOverPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="PanelContainer" type="PanelContainer" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="FinalWaveLabel" type="Label" parent="GameOverPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="GameOverVB" type="VBoxContainer" parent="GameOverPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="RestartButton" type="Button" parent="GameOverPanel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="ReasonLabel" type="Label" parent="GameOverPanel/PanelContainer/GameOverVB"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+
+[node name="FinalWaveLabel" type="Label" parent="GameOverPanel/PanelContainer/GameOverVB"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="Button" parent="GameOverPanel/PanelContainer/GameOverVB"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart"
